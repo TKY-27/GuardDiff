@@ -1,0 +1,36 @@
+name: guarddiff smoke
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  guarddiff:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      security-events: write
+
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Run GuardDiff
+        uses: ./integrations/github-action
+        with:
+          fail-on: high
+          post-comment: true
+          sarif: true
+          annotations: true
+          rules-update-check: true
+          sarif-file: guarddiff-results.sarif
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload GuardDiff SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@0daab03d71ff584ef619d027a3fd9146679c5d84 # v3
+        with:
+          sarif_file: guarddiff-results.sarif

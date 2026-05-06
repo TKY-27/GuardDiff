@@ -1,0 +1,12 @@
+diff --git a/src/auth.ts b/src/auth.ts
+index 1111111..2222222 100644
+--- a/src/auth.ts
++++ b/src/auth.ts
+@@ -1,3 +1,4 @@
+-export function check(req, res, next) {
+-  requireAuth(req, res, next);
+-}
++export function check(req, res, next) {
++  return delegateAuth(req, res, next);
++}
++export const delegateAuth = (req, res, next) => requireAuth(req, res, next);

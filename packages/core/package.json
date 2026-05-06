@@ -1,0 +1,57 @@
+{
+  "name": "@guarddiff/core",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Core parser, rules, engine, and reporters for GuardDiff.",
+  "license": "MIT",
+  "author": "GuardDiff contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guarddiff/guarddiff.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/guarddiff/guarddiff/issues"
+  },
+  "homepage": "https://github.com/guarddiff/guarddiff/tree/main/packages/core#readme",
+  "keywords": [
+    "guarddiff",
+    "security",
+    "diff",
+    "scanner",
+    "sarif",
+    "rules"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "minimatch": "^9.0.5",
+    "parse-diff": "^0.11.1",
+    "yaml": "^2.8.1",
+    "zod": "^4.1.11"
+  }
+}

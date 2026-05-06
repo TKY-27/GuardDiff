@@ -1,0 +1,75 @@
+name: GuardDiff
+description: Block risky AI-generated diffs before they merge.
+author: guarddiff
+
+branding:
+  icon: shield
+  color: red
+
+inputs:
+  fail-on:
+    description: Fail when findings are at or above this severity (critical/high/medium/low/info).
+    required: false
+    default: high
+
+  post-comment:
+    description: Post or update a pull request comment with the GuardDiff summary.
+    required: false
+    default: "true"
+
+  sarif:
+    description: Write SARIF output for GitHub Code Scanning.
+    required: false
+    default: "false"
+
+  annotations:
+    description: Emit GitHub workflow annotations for active findings.
+    required: false
+    default: "true"
+
+  rules-update-check:
+    description: Compare installed rule versions with the published registry and emit update notices.
+    required: false
+    default: "true"
+
+  allow-rule-packs:
+    description: Allow loading executable rule packs from guarddiff.config.yaml. Enable only for trusted branches.
+    required: false
+    default: "false"
+
+  allow-inline-suppressions:
+    description: Allow inline guarddiff-ignore suppressions in pull request diffs. Keep disabled for untrusted PRs.
+    required: false
+    default: "false"
+
+  rules-registry-url:
+    description: JSON manifest URL used for rule update checks.
+    required: false
+    default: https://raw.githubusercontent.com/guarddiff/guarddiff/main/docs/site/rules/manifest.json
+
+  sarif-file:
+    description: Path for the SARIF output file.
+    required: false
+    default: guarddiff-results.sarif
+
+  config:
+    description: Path to the GuardDiff config file.
+    required: false
+    default: guarddiff.config.yaml
+
+outputs:
+  findings-count:
+    description: Number of active findings, excluding suppressed findings.
+
+  critical-count:
+    description: Number of active critical findings.
+
+  rule-update-count:
+    description: Number of available rule updates.
+
+  passed:
+    description: Whether the configured policy passed.
+
+runs:
+  using: node20
+  main: integrations/github-action/dist/main.js

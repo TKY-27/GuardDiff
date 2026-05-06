@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GuardDiff Documentation</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #f6f7f2;
+        color: #20242b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      header {
+        background: #12343b;
+        color: #ffffff;
+        padding: 40px 24px 32px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-bottom: 64px;
+        font-size: 14px;
+      }
+
+      nav a {
+        color: #e7f6f2;
+        text-decoration: none;
+      }
+
+      main {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 34px 24px 72px;
+      }
+
+      h1 {
+        max-width: 760px;
+        margin: 0;
+        font-size: 48px;
+        line-height: 1.04;
+        letter-spacing: 0;
+      }
+
+      h2 {
+        margin: 42px 0 12px;
+        font-size: 26px;
+        letter-spacing: 0;
+      }
+
+      h3 {
+        margin: 0 0 8px;
+        font-size: 18px;
+        letter-spacing: 0;
+      }
+
+      a {
+        color: #006d77;
+      }
+
+      code {
+        background: #e9ecef;
+        border-radius: 4px;
+        padding: 2px 5px;
+      }
+
+      pre {
+        overflow-x: auto;
+        background: #1f2933;
+        color: #f8fafc;
+        border-radius: 8px;
+        padding: 16px;
+      }
+
+      pre code {
+        background: transparent;
+        padding: 0;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border-bottom: 1px solid #d6d9d2;
+        padding: 10px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      th {
+        color: #4a5563;
+        font-size: 13px;
+        text-transform: uppercase;
+      }
+
+      .lede {
+        max-width: 720px;
+        margin: 18px 0 0;
+        color: #d9ece8;
+        font-size: 18px;
+        line-height: 1.55;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid #d6d9d2;
+        border-radius: 8px;
+        padding: 16px;
+        background: #ffffff;
+      }
+
+      .card p {
+        margin: 0;
+        color: #4a5563;
+        line-height: 1.5;
+      }
+
+      .callout {
+        border-left: 4px solid #c2410c;
+        padding: 12px 16px;
+        background: #fff7ed;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          background: #111827;
+          color: #f3f4f6;
+        }
+
+        .card {
+          background: #18212f;
+          border-color: #334155;
+        }
+
+        .card p,
+        th {
+          color: #cbd5e1;
+        }
+
+        code {
+          background: #263241;
+        }
+
+        th,
+        td {
+          border-color: #334155;
+        }
+
+        .callout {
+          background: #2f1f16;
+        }
+      }
+
+      @media (max-width: 760px) {
+        h1 {
+          font-size: 34px;
+        }
+
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#start">Start</a>
+        <a href="#ci">CI</a>
+        <a href="#editor">Editor</a>
+        <a href="#rules">Rules</a>
+        <a href="#updates">Rule Updates</a>
+      </nav>
+      <h1>GuardDiff blocks risky AI-generated diffs before they merge.</h1>
+      <p class="lede">
+        Local-first scanning for staged changes, pull requests, patch files, and workspaces, with built-in rules for leaked secrets,
+        auth changes, unsafe config, dangerous package scripts, and MCP exposure.
+      </p>
+    </header>
+    <main>
+      <section id="start">
+        <h2>Start</h2>
+        <pre><code>npm install -g guarddiff
+guarddiff staged --fail-on high</code></pre>
+        <div class="grid">
+          <div class="card">
+            <h3>Before Commit</h3>
+            <p>Run <code>guarddiff staged</code> directly or install the generated pre-commit hook with <code>guarddiff init --pre-commit</code>.</p>
+          </div>
+          <div class="card">
+            <h3>Patch Review</h3>
+            <p>Use <code>guarddiff diff --stdin</code> or <code>guarddiff diff --file change.patch</code> for CI glue and saved patch files.</p>
+          </div>
+          <div class="card">
+            <h3>Workspace Scan</h3>
+            <p>Use <code>guarddiff scan .</code> to inspect local files, including config files that are risky even outside a diff.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ci">
+        <h2>GitHub Action</h2>
+        <pre><code>- uses: guarddiff/guarddiff@v1
+  with:
+    fail-on: high
+    post-comment: true
+    sarif: true
+            annotations: true
+    rules-update-check: true
+    allow-inline-suppressions: false</code></pre>
+        <p>
+          The Action writes SARIF for Code Scanning, upserts one PR comment, emits workflow annotations with remediation details,
+          and reports available rule updates when the registry manifest has newer detector versions. External rule packs stay
+          disabled by default in CI unless explicitly enabled for trusted branches. Pull request scans read config from the trusted
+          base ref, and inline suppressions are disabled by default.
+        </p>
+      </section>
+
+      <section id="editor">
+        <h2>VS Code</h2>
+        <p>
+          The stable VS Code extension shells out to the GuardDiff CLI, maps active findings to diagnostics, and exposes a
+          status-bar scan entry. Set <code>guarddiff.scanOnSave</code> to run a workspace scan after saves.
+        </p>
+      </section>
+
+      <section id="rules">
+        <h2>Built-In Rule Coverage</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Rule Families</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Secrets</td>
+              <td>OpenAI, Anthropic, AWS, GitHub, Stripe, Supabase, Firebase config, private keys, high-entropy strings.</td>
+            </tr>
+            <tr>
+              <td>Diffs</td>
+              <td>Auth removal and bypass, CORS wildcard, debug endpoints, dangerous shell execution, eval, sensitive logging.</td>
+            </tr>
+            <tr>
+              <td>Config</td>
+              <td>Committed env files, plaintext env secrets, dangerous package lifecycle scripts, Firebase and Firestore rules open to everyone.</td>
+            </tr>
+            <tr>
+              <td>MCP</td>
+              <td>Full home access, root access, auto-exec without approval, and unrestricted network access.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="updates">
+        <h2>Rule Updates</h2>
+        <p class="callout">
+          Publish <code>/rules/manifest.json</code> with this static site so CI can compare installed detector versions with the
+          latest registry metadata. The current manifest is available at <a href="rules/manifest.json">rules/manifest.json</a>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

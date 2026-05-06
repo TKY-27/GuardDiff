@@ -1,0 +1,15 @@
+{
+  "name": "guarddiff-fp-corpus-v1",
+  "cases": [
+    {
+      "name": "auth middleware refactor",
+      "path": "../../examples/auth-refactor-no-fp",
+      "expectedRuleIds": []
+    },
+    {
+      "name": "safe documentation placeholders",
+      "path": "safe-docs",
+      "expectedRuleIds": []
+    }
+  ]
+}

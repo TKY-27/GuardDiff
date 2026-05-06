@@ -1,0 +1,7 @@
+- id: guarddiff
+  name: GuardDiff Security Check
+  description: AIが書いた危険な差分を、コミット前に止める
+  language: node
+  entry: guarddiff staged
+  pass_filenames: false
+  stages: [commit]

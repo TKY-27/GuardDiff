@@ -1,0 +1,5 @@
+permissions:
+  allowedDirectories:
+    - /Users/demo
+  approval_policy: never
+  network_access: true

@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+  <title id="title">GuardDiff CLI security scan demo</title>
+  <desc id="desc">A terminal-style GuardDiff report showing critical, high, and medium findings before merge.</desc>
+  <defs>
+    <linearGradient id="hero" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#112f35"/>
+      <stop offset="0.55" stop-color="#18212f"/>
+      <stop offset="1" stop-color="#3b1f2b"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="20" stdDeviation="24" flood-color="#000000" flood-opacity="0.26"/>
+    </filter>
+  </defs>
+  <rect width="1280" height="720" fill="url(#hero)"/>
+  <g opacity="0.22">
+    <path d="M0 108 H1280 M0 236 H1280 M0 364 H1280 M0 492 H1280 M0 620 H1280" stroke="#ffffff" stroke-width="1"/>
+    <path d="M160 0 V720 M400 0 V720 M640 0 V720 M880 0 V720 M1120 0 V720" stroke="#ffffff" stroke-width="1"/>
+  </g>
+  <g filter="url(#shadow)">
+    <rect x="74" y="68" width="820" height="584" rx="16" fill="#0c1117" stroke="#263344"/>
+    <rect x="74" y="68" width="820" height="46" rx="16" fill="#151d27"/>
+    <circle cx="104" cy="91" r="7" fill="#ef4444"/>
+    <circle cx="128" cy="91" r="7" fill="#f59e0b"/>
+    <circle cx="152" cy="91" r="7" fill="#22c55e"/>
+    <text x="184" y="97" fill="#aab7c4" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">guarddiff staged --fail-on high</text>
+
+    <text x="106" y="158" fill="#e6edf3" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="20" font-weight="700">GuardDiff found 3 risky changes</text>
+    <text x="106" y="205" fill="#ff6b6b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">critical</text>
+    <text x="222" y="205" fill="#f8fafc" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">secret/openai-key</text>
+    <text x="490" y="205" fill="#9fb3c8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">src/openai.ts:4</text>
+    <text x="138" y="237" fill="#c7d2de" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">OpenAI API key detected. Move it to OPENAI_API_KEY and rotate.</text>
+    <text x="138" y="265" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">&gt; sk-********...</text>
+
+    <text x="106" y="325" fill="#ff6b6b" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">critical</text>
+    <text x="222" y="325" fill="#f8fafc" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">diff/auth-removed</text>
+    <text x="490" y="325" fill="#9fb3c8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">src/routes/admin.ts:31</text>
+    <text x="138" y="357" fill="#c7d2de" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Authentication check was removed from a protected route.</text>
+
+    <text x="106" y="417" fill="#fbbf24" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" font-weight="700">high</text>
+    <text x="222" y="417" fill="#f8fafc" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">mcp/full-home-access</text>
+    <text x="490" y="417" fill="#9fb3c8" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">.mcp/config.json:7</text>
+    <text x="138" y="449" fill="#c7d2de" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Agent config grants access to the whole home directory.</text>
+
+    <rect x="106" y="508" width="730" height="74" rx="10" fill="#101923" stroke="#254055"/>
+    <text x="130" y="539" fill="#f8fafc" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Summary: 2 critical, 1 high, 0 raw secret values exposed</text>
+    <text x="130" y="568" fill="#7dd3fc" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">Policy: FAIL before commit or merge</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="934" y="90" width="272" height="540" rx="18" fill="#f8fafc"/>
+    <text x="970" y="144" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="28" font-weight="800">Built for AI diffs</text>
+    <text x="970" y="178" fill="#334155" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">Catches risky behavior that</text>
+    <text x="970" y="200" fill="#334155" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">simple token matching misses.</text>
+    <g font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700">
+      <rect x="970" y="244" width="198" height="38" rx="8" fill="#fee2e2"/>
+      <text x="992" y="269" fill="#991b1b">Secrets masked</text>
+      <rect x="970" y="300" width="198" height="38" rx="8" fill="#ffedd5"/>
+      <text x="992" y="325" fill="#9a3412">Auth removal</text>
+      <rect x="970" y="356" width="198" height="38" rx="8" fill="#dcfce7"/>
+      <text x="992" y="381" fill="#166534">Unsafe config</text>
+      <rect x="970" y="412" width="198" height="38" rx="8" fill="#dbeafe"/>
+      <text x="992" y="437" fill="#1d4ed8">MCP exposure</text>
+      <rect x="970" y="468" width="198" height="38" rx="8" fill="#ede9fe"/>
+      <text x="992" y="493" fill="#5b21b6">SARIF ready</text>
+    </g>
+    <text x="970" y="560" fill="#0f172a" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18" font-weight="800">Local-first</text>
+    <text x="970" y="586" fill="#475569" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15">Core scans run without</text>
+    <text x="970" y="608" fill="#475569" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="15">uploading source code.</text>
+  </g>
+</svg>

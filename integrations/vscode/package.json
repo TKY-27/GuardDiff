@@ -1,0 +1,73 @@
+{
+  "name": "guarddiff-vscode",
+  "displayName": "GuardDiff",
+  "description": "Surface GuardDiff findings as VS Code diagnostics.",
+  "version": "1.0.0",
+  "publisher": "guarddiff",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Linters"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "GuardDiff does not execute scans until the workspace is trusted."
+    }
+  },
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:guarddiff.scanWorkspace",
+    "onCommand:guarddiff.clearDiagnostics"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "guarddiff.scanWorkspace",
+        "title": "GuardDiff: Scan Workspace"
+      },
+      {
+        "command": "guarddiff.clearDiagnostics",
+        "title": "GuardDiff: Clear Diagnostics"
+      }
+    ],
+    "configuration": {
+      "title": "GuardDiff",
+      "properties": {
+        "guarddiff.command": {
+          "type": "string",
+          "default": "guarddiff",
+          "description": "GuardDiff CLI command or absolute path."
+        },
+        "guarddiff.configPath": {
+          "type": "string",
+          "default": "",
+          "description": "Optional config path passed to --config."
+        },
+        "guarddiff.failOn": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low", "info"],
+          "default": "high",
+          "description": "Severity threshold passed to --fail-on."
+        },
+        "guarddiff.scanOnSave": {
+          "type": "boolean",
+          "default": false,
+          "description": "Run GuardDiff when a workspace file is saved."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.9.3"
+  }
+}

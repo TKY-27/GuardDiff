@@ -1,0 +1,68 @@
+{
+  "name": "guarddiff",
+  "version": "1.0.0",
+  "private": false,
+  "type": "module",
+  "description": "Block risky AI-generated diffs before they merge.",
+  "license": "MIT",
+  "author": "GuardDiff contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guarddiff/guarddiff.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guarddiff/guarddiff/issues"
+  },
+  "homepage": "https://github.com/guarddiff/guarddiff#readme",
+  "keywords": [
+    "ai",
+    "security",
+    "diff",
+    "code-review",
+    "secret-scanner",
+    "github-action",
+    "sarif",
+    "pre-commit",
+    "mcp"
+  ],
+  "packageManager": "npm@10.8.2",
+  "bin": {
+    "guarddiff": "bin/guarddiff.js"
+  },
+  "files": [
+    "bin/",
+    "docs/assets/*.svg",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @guarddiff/core && npm run build -w @guarddiff/cli && npm run build:github-action",
+    "build:github-action": "esbuild integrations/github-action/src/main.ts --bundle --platform=node --target=node20 --format=cjs --outfile=integrations/github-action/dist/main.js",
+    "benchmark:fp": "node packages/cli/dist/index.js benchmark benchmarks/fp-corpus",
+    "test": "npm run test -w @guarddiff/core && npm run test -w @guarddiff/cli && npm run test:github-action",
+    "test:coverage": "npm run test:coverage -w @guarddiff/core",
+    "test:github-action": "vitest run integrations/github-action/action.test.ts",
+    "typecheck": "npm run typecheck -w @guarddiff/core && npm run typecheck -w @guarddiff/cli && npm run typecheck:github-action",
+    "typecheck:github-action": "tsc -p integrations/github-action/tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@guarddiff/cli": "1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.6.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "esbuild": "^0.27.7",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

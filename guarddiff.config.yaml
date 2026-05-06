@@ -1,0 +1,8 @@
+version: "1"
+
+policy:
+  failOn: high
+
+ignore:
+  paths:
+    - "examples/**"

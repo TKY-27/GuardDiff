@@ -1,0 +1,57 @@
+{
+  "name": "@guarddiff/cli",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Command-line interface for GuardDiff, an AI-generated diff safety gate.",
+  "license": "MIT",
+  "author": "GuardDiff contributors",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guarddiff/guarddiff.git",
+    "directory": "packages/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/guarddiff/guarddiff/issues"
+  },
+  "homepage": "https://github.com/guarddiff/guarddiff/tree/main/packages/cli#readme",
+  "keywords": [
+    "guarddiff",
+    "security",
+    "diff",
+    "cli",
+    "secret-scanner",
+    "pre-commit"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "guarddiff": "dist/index.js"
+  },
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "clean": "node -e \"require('node:fs').rmSync('dist',{recursive:true,force:true})\"",
+    "build": "npm run clean && tsc -p tsconfig.json",
+    "test": "npm run build -w @guarddiff/core && vitest run --passWithNoTests",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@guarddiff/core": "1.0.0",
+    "commander": "^13.1.0"
+  }
+}

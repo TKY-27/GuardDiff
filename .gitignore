@@ -1,0 +1,39 @@
+# Dependencies
+node_modules/
+
+# Build and coverage output
+dist/
+!integrations/github-action/dist/
+!integrations/github-action/dist/main.js
+coverage/
+.turbo/
+*.tsbuildinfo
+
+# Local environment and editor state
+.env
+.env.*
+!.env.example
+*.local
+.DS_Store
+.vscode/settings.json
+
+# Local agent/tooling transcripts and worktrees
+.aider*
+.claude/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+
+# Private keys, certificates, and mobile provisioning
+*.pem
+*.key
+*.p8
+*.p12
+*.mobileprovision
+
+# App/service config files that often contain publish-sensitive values
+GoogleService-Info.plist
+google-services.json

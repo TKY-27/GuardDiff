@@ -1,0 +1,38 @@
+# Self-scan policy:
+# - Ignore generated/dependency outputs everywhere.
+# - Ignore curated examples and fixtures because they intentionally contain risky snippets.
+# - Ignore detector tests in this repository because they embed representative secret/risk literals.
+# Production adopters should prefer fixtures/examples over broad test-file ignores when possible.
+
+# Intentionally insecure examples and documentation examples.
+examples/**
+docs/examples/**
+
+# Fixture directories and fixture-like files.
+**/fixtures/**
+**/__fixtures__/**
+**/*.fixture.*
+**/*.fixtures.*
+GuardDiff_仕様書.md
+
+# Rule implementations intentionally contain risky pattern literals.
+packages/core/src/rules/config/firebase-open-rules.ts
+packages/core/src/rules/config/firestore-open-read.ts
+packages/core/src/rules/diff/auth-removed.ts
+
+# Lockfile integrity hashes are expected high-entropy values.
+package-lock.json
+
+# Generated dependency, build, and coverage output.
+node_modules/**
+dist/**
+packages/*/dist/**
+coverage/**
+packages/*/coverage/**
+
+# Local agent/tooling artifacts should never be part of a release scan.
+.aider*
+.claude/**
+
+**/*.test.ts
+**/*.spec.ts

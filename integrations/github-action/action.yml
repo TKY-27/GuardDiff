@@ -1,0 +1,71 @@
+name: GuardDiff
+description: AIが書いた危険な差分を、マージ前に止める
+author: guarddiff
+
+inputs:
+  fail-on:
+    description: このseverity以上でfail (critical/high/medium/low)
+    required: false
+    default: high
+
+  post-comment:
+    description: PRにコメントを投稿する
+    required: false
+    default: "true"
+
+  sarif:
+    description: SARIF形式で出力する（Code Scanning連携）
+    required: false
+    default: "false"
+
+  annotations:
+    description: GitHub workflow annotationsを出力する
+    required: false
+    default: "true"
+
+  rules-update-check:
+    description: 最新のルールレジストリと比較し、更新可能なルールを通知する
+    required: false
+    default: "true"
+
+  allow-rule-packs:
+    description: guarddiff.config.yaml の外部 rule pack 読み込みを許可する。信頼済みブランチでのみ有効化してください
+    required: false
+    default: "false"
+
+  allow-inline-suppressions:
+    description: PR差分内の guarddiff-ignore inline suppression を許可する。信頼済みブランチでのみ有効化してください
+    required: false
+    default: "false"
+
+  rules-registry-url:
+    description: ルール更新確認に使うJSON manifest URL
+    required: false
+    default: https://raw.githubusercontent.com/guarddiff/guarddiff/main/docs/site/rules/manifest.json
+
+  sarif-file:
+    description: SARIF 出力ファイルのパス
+    required: false
+    default: guarddiff-results.sarif
+
+  config:
+    description: 設定ファイルのパス
+    required: false
+    default: guarddiff.config.yaml
+
+outputs:
+  findings-count:
+    description: 検知件数（suppressed 除く）
+
+  critical-count:
+    description: Critical 件数
+
+  rule-update-count:
+    description: 利用可能なルール更新件数
+
+  passed:
+    description: policy を pass したか
+
+runs:
+  using: node20
+  main: dist/main.js
