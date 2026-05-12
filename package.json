@@ -52,7 +52,7 @@
     "test": "npm run test -w @guarddiff/core && npm run test -w @guarddiff/cli && npm run test:github-action",
     "test:coverage": "npm run test:coverage -w @guarddiff/core",
     "test:github-action": "vitest run integrations/github-action/action.test.ts",
-    "typecheck": "npm run typecheck -w @guarddiff/core && npm run typecheck -w @guarddiff/cli && npm run typecheck:github-action",
+    "typecheck": "npm run typecheck -w @guarddiff/core && npm run build -w @guarddiff/core && npm run typecheck -w @guarddiff/cli && npm run typecheck:github-action",
     "typecheck:github-action": "tsc -p integrations/github-action/tsconfig.json --noEmit"
   },
   "dependencies": {
