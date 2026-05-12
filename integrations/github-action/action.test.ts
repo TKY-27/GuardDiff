@@ -16,6 +16,7 @@ describe("github action integration", () => {
     vi.restoreAllMocks();
     process.chdir(originalCwd);
     process.env = { ...originalEnv };
+    process.env.INPUT_RULES_UPDATE_CHECK = "false";
     process.exitCode = 0;
   });
 
