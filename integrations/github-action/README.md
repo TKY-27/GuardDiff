@@ -15,7 +15,7 @@ GuardDiff masks matched secret material in terminal output, PR comments, annotat
 | `rules-update-check` | `true` | Compare active rule metadata with the published registry manifest and emit update notices. |
 | `allow-rule-packs` | `false` | Allow executable external rule packs from `guarddiff.config.yaml`. Enable only for trusted branches. |
 | `allow-inline-suppressions` | `false` | Allow inline `guarddiff-ignore` suppressions in PR diffs. Enable only for trusted branches after review. |
-| `rules-registry-url` | `https://raw.githubusercontent.com/guarddiff/guarddiff/main/docs/site/rules/manifest.json` | JSON manifest URL used for update checks. |
+| `rules-registry-url` | `https://raw.githubusercontent.com/TKY-27/GuardDiff/main/docs/site/rules/manifest.json` | JSON manifest URL used for update checks. |
 | `sarif-file` | `guarddiff-results.sarif` | SARIF output path. |
 | `config` | `guarddiff.config.yaml` | GuardDiff config path. |
 
@@ -62,7 +62,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run GuardDiff
-        uses: guarddiff/guarddiff@v1
+        uses: TKY-27/GuardDiff@v0.1.0
         with:
           fail-on: high
           post-comment: true

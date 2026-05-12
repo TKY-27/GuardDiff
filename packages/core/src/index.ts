@@ -44,7 +44,7 @@ export async function runScan(params: {
 
   return {
     scannedAt: new Date().toISOString(),
-    guarddiffVersion: params.version ?? "1.0.0",
+    guarddiffVersion: params.version ?? "0.1.0",
     inputType: params.inputType,
     findings,
     stats: buildStats(params.fileDiffs, findings, rules.length, durationMs),

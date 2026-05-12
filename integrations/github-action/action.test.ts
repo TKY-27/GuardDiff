@@ -147,7 +147,7 @@ describe("github action integration", () => {
                 ruleVersion: "1.1.0",
                 title: "OpenAI API Key Detected",
                 summary: "Improved OpenAI project key coverage.",
-                docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+                docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
               }
             ]
           }),
@@ -232,7 +232,7 @@ describe("github action integration", () => {
     const output = stdoutSpy.mock.calls.map((call) => String(call[0])).join("");
     expect(output).toContain("::error file=src/openai.ts");
     expect(output).toContain("Remediation:");
-    expect(output).toContain("Docs: https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md");
+    expect(output).toContain("Docs: https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md");
   });
 
   it("updates an existing GuardDiff PR comment instead of posting a new one", async () => {
@@ -422,7 +422,7 @@ describe("github action integration", () => {
   defaultConfidence: "possible",
   description: "Test-only external rule pack.",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect: () => []
 }];
 `

@@ -6,7 +6,7 @@ import { TerminalReporter } from "./terminal-reporter.js";
 function buildResult(): ScanResult {
   return {
     scannedAt: new Date().toISOString(),
-    guarddiffVersion: "1.0.0",
+    guarddiffVersion: "0.1.0",
     inputType: "staged",
     passed: false,
     policyViolations: ["[CRITICAL] secret/openai-key: boom (src/openai.ts:1)"],
@@ -55,7 +55,7 @@ describe("TerminalReporter", () => {
   it("renders full output by default", () => {
     const rendered = new TerminalReporter().render(buildResult(), { color: false });
 
-    expect(rendered).toContain("GuardDiff v1.0.0");
+    expect(rendered).toContain("GuardDiff v0.1.0");
     expect(rendered).toContain("Summary:");
     expect(rendered).toContain("CRITICAL  secret/openai-key");
     expect(rendered).toContain("なぜ危険か:");
@@ -67,7 +67,7 @@ describe("TerminalReporter", () => {
     const rendered = new TerminalReporter().render(buildResult(), { quiet: true, color: false });
 
     expect(rendered).toContain("CRITICAL  secret/openai-key");
-    expect(rendered).not.toContain("GuardDiff v1.0.0");
+    expect(rendered).not.toContain("GuardDiff v0.1.0");
     expect(rendered).not.toContain("Summary:");
   });
 

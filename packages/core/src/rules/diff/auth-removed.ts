@@ -64,7 +64,7 @@ export const authRemovedRule: Rule = {
                 explanation:
                   "同一差分内に同じ認証キーワードの追加があるため、単純削除ではなくリファクタリングの可能性があります。",
                 remediation: "移動先でも認証が確実に実行されているかを確認してください。",
-                docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+                docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
               }
             : hasAuthContext
               ? {
@@ -81,7 +81,7 @@ export const authRemovedRule: Rule = {
                   explanation:
                     "認証ロジックの削除は保護対象への不正アクセスに直結する重大な変更です。AI のデバッグ変更として紛れ込みやすい典型例でもあります。",
                   remediation: "削除が意図的なら代替認証の存在を確認し、不要な削除なら即時に戻してください。",
-                  docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+                  docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
                 }
               : {
                   ruleId: this.id,
@@ -98,7 +98,7 @@ export const authRemovedRule: Rule = {
                     "認証キーワードを含む削除ですが、周辺の認証文脈が不足しているため重大度を一段下げて報告しています。",
                   remediation:
                     "この削除が実際の認証ガードに当たるか、周辺コードと移動先を確認してください。認証削除なら元に戻すか代替保護を追加してください。",
-                  docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+                  docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
                 }
         );
       }

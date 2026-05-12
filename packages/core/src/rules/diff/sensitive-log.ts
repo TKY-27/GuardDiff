@@ -11,7 +11,7 @@ export const sensitiveLogRule: Rule = {
   defaultConfidence: "likely",
   description: "機密情報のログ出力が追加されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -37,7 +37,7 @@ export const sensitiveLogRule: Rule = {
           message: "機密情報を含むログ出力が追加されています。",
           explanation: "ログは集約・共有されやすく、機密値を含めると二次漏えいの温床になります。",
           remediation: "値はマスクし、必要ならメタ情報だけを記録してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

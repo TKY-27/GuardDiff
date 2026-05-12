@@ -40,7 +40,7 @@ export async function runScanCommand(scanPath: string, options: ScanCommandOptio
     inputType: options.diff ? "diff" : "path",
     ignorePaths,
     rules,
-    version: "1.0.0"
+    version: "0.1.0"
   });
 
   process.stdout.write(`${renderResult(result, options.format ?? "terminal", options, rules)}\n`);

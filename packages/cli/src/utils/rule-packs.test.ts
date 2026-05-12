@@ -43,7 +43,7 @@ describe("loadConfiguredRules", () => {
   defaultConfidence: "likely",
   description: "Detects public S3 bucket policies.",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect() { return []; }
 }];\n`,
       "utf8"

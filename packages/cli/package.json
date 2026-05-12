@@ -1,19 +1,19 @@
 {
   "name": "@guarddiff/cli",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "Command-line interface for GuardDiff, an AI-generated diff safety gate.",
   "license": "MIT",
   "author": "GuardDiff contributors",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guarddiff/guarddiff.git",
+    "url": "git+https://github.com/TKY-27/GuardDiff.git",
     "directory": "packages/cli"
   },
   "bugs": {
-    "url": "https://github.com/guarddiff/guarddiff/issues"
+    "url": "https://github.com/TKY-27/GuardDiff/issues"
   },
-  "homepage": "https://github.com/guarddiff/guarddiff/tree/main/packages/cli#readme",
+  "homepage": "https://github.com/TKY-27/GuardDiff/tree/main/packages/cli#readme",
   "keywords": [
     "guarddiff",
     "security",
@@ -51,7 +51,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@guarddiff/core": "1.0.0",
+    "@guarddiff/core": "0.1.0",
     "commander": "^13.1.0"
   }
 }

@@ -11,7 +11,7 @@ export const dangerousShellRule: Rule = {
   defaultConfidence: "likely",
   description: "ユーザー入力起点の shell 実行が追加されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -43,7 +43,7 @@ export const dangerousShellRule: Rule = {
           message: "ユーザー入力に依存する shell 実行が追加されています。",
           explanation: "未検証入力をそのまま shell に渡すとコマンドインジェクションに直結します。",
           remediation: "shell を避けて API を直接呼ぶか、引数リストを使って厳格にバリデーションしてください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

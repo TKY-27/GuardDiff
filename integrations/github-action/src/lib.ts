@@ -23,12 +23,12 @@ import {
   type Severity
 } from "../../../packages/core/src/index.js";
 
-const ACTION_VERSION = "1.0.0";
+const ACTION_VERSION = "0.1.0";
 const COMMENT_MARKER = "<!-- guarddiff-report -->";
 const CONFIG_NAME = "guarddiff.config.yaml";
 const IGNORE_NAME = ".guarddiffignore";
 const DEFAULT_SARIF_FILE = "guarddiff-results.sarif";
-const DEFAULT_RULE_REGISTRY_URL = "https://raw.githubusercontent.com/guarddiff/guarddiff/main/docs/site/rules/manifest.json";
+const DEFAULT_RULE_REGISTRY_URL = "https://raw.githubusercontent.com/TKY-27/GuardDiff/main/docs/site/rules/manifest.json";
 const RULE_UPDATE_TIMEOUT_MS = 3000;
 const SEVERITIES: Severity[] = ["critical", "high", "medium", "low", "info"];
 const CATEGORIES: RuleCategory[] = ["secret", "diff", "config", "permission", "mcp"];

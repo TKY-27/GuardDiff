@@ -91,7 +91,7 @@ async function runBenchmark(
       inputType: "path",
       ignorePaths,
       rules,
-      version: "1.0.0"
+      version: "0.1.0"
     });
     const activeFindings = scanResult.findings.filter((finding) => !finding.suppressed);
     const expectedRuleIds = benchmarkCase.expectedRuleIds ?? [];

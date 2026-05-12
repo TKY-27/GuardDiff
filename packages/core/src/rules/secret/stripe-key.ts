@@ -12,7 +12,7 @@ export const stripeKeyRule: Rule = {
   defaultConfidence: "likely",
   description: "Stripe シークレットキーがコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -39,7 +39,7 @@ export const stripeKeyRule: Rule = {
             message: "Stripe シークレットキーがコードに含まれています。",
             explanation: "決済系の秘密鍵は課金操作や顧客情報アクセスに直結するため、漏えい時の被害が大きい値です。",
             remediation: "環境変数に移し、公開済みなら即時ローテーションしてください。",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }

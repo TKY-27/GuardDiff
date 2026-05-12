@@ -1,6 +1,6 @@
 {
   "name": "guarddiff",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": false,
   "type": "module",
   "description": "Block risky AI-generated diffs before they merge.",
@@ -8,12 +8,12 @@
   "author": "GuardDiff contributors",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guarddiff/guarddiff.git"
+    "url": "git+https://github.com/TKY-27/GuardDiff.git"
   },
   "bugs": {
-    "url": "https://github.com/guarddiff/guarddiff/issues"
+    "url": "https://github.com/TKY-27/GuardDiff/issues"
   },
-  "homepage": "https://github.com/guarddiff/guarddiff#readme",
+  "homepage": "https://github.com/TKY-27/GuardDiff#readme",
   "keywords": [
     "ai",
     "security",
@@ -56,7 +56,7 @@
     "typecheck:github-action": "tsc -p integrations/github-action/tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@guarddiff/cli": "1.0.0"
+    "@guarddiff/cli": "0.1.0"
   },
   "devDependencies": {
     "@types/node": "^24.6.0",

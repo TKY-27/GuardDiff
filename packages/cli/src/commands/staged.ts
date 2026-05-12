@@ -32,7 +32,7 @@ export async function runStagedCommand(options: StagedCommandOptions): Promise<n
     inputType: "staged",
     ignorePaths: loadIgnorePatterns(rootDir),
     rules,
-    version: "1.0.0"
+    version: "0.1.0"
   });
 
   process.stdout.write(`${renderResult(result, options.format ?? "terminal", options, rules)}\n`);

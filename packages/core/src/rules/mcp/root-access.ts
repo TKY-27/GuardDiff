@@ -12,7 +12,7 @@ export const mcpRootAccessRule: Rule = {
   defaultConfidence: "likely",
   description: "MCP またはエージェント設定で `/` へのアクセスが許可されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     const fileContext = ctx.fileDiff.rawContent ?? ctx.fileDiff.hunks.flatMap((hunk) => hunk.lines.map((line) => line.content)).join("\n");
@@ -45,7 +45,7 @@ export const mcpRootAccessRule: Rule = {
           message: "ルートディレクトリ `/` へのアクセスが許可されています。",
           explanation: "ルート全体を許可すると OS 設定、システム秘密情報、他ユーザー領域まで触れる設定になり、事故時の影響範囲が極端に広がります。",
           remediation: "必要最小限のディレクトリだけを明示し、`/` を直接許可しないでください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

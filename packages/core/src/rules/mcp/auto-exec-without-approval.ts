@@ -15,7 +15,7 @@ export const mcpAutoExecWithoutApprovalRule: Rule = {
   defaultConfidence: "likely",
   description: "承認なしでコマンド実行が可能な設定です。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -43,7 +43,7 @@ export const mcpAutoExecWithoutApprovalRule: Rule = {
           message: "承認なしの自動実行設定が追加されています。",
           explanation: "エージェントが人間の承認なしにコマンドを実行できると、誤操作やプロンプト注入がそのまま破壊的操作につながります。",
           remediation: "承認ポリシーを有効に戻し、自動実行は限定された安全なサブセットにのみ許可してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

@@ -27,7 +27,7 @@ function buildRule(overrides: Partial<Rule> = {}): Rule {
     defaultConfidence: "likely",
     description: "example",
     enabled: true,
-    ruleVersion: "1.0.0",
+    ruleVersion: "0.1.0",
     detect: vi.fn(() => [finding]),
     ...overrides
   };

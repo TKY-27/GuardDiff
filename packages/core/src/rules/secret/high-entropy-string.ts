@@ -37,7 +37,7 @@ export const highEntropyStringRule: Rule = {
   defaultConfidence: "possible",
   description: "高エントロピー文字列が追加されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -72,7 +72,7 @@ export const highEntropyStringRule: Rule = {
             explanation:
               "十分にランダムで長い文字列が秘密情報の文脈で追加される場合、実キーやトークンの直書きである可能性があります。",
             remediation: "環境変数やシークレットマネージャーに移し、必要ならこの行だけ inline suppression を付けてください。",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }

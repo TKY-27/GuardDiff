@@ -10,7 +10,7 @@ export const corsWildcardRule: Rule = {
   defaultConfidence: "likely",
   description: "CORS が全開放されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -37,7 +37,7 @@ export const corsWildcardRule: Rule = {
           message: "CORS がワイルドカードで開放されています。",
           explanation: "認証付き API や管理系エンドポイントで CORS を全開放すると、意図しないオリジンからの利用を許すおそれがあります。",
           remediation: "許可するオリジンを明示し、本番と開発で設定を分離してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

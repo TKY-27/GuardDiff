@@ -8,7 +8,7 @@ export const firebaseConfigRule: Rule = {
   defaultConfidence: "possible",
   description: "Firebase 設定オブジェクトが追加されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const addedLines = ctx.fileDiff.hunks.flatMap((hunk) => hunk.lines).filter((line) => line.type === "add");
     const addedContent = addedLines.map((line) => line.content).join("\n");
@@ -38,7 +38,7 @@ export const firebaseConfigRule: Rule = {
         message: "Firebase 設定オブジェクトが追加されています。",
         explanation: "Firebase のクライアント設定自体は常に秘密ではありませんが、誤って管理用設定や関連鍵が混在しやすい領域です。",
         remediation: "クライアント公開前提の値かを確認し、管理権限のある鍵は含めないでください。",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }

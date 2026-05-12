@@ -12,7 +12,7 @@ export const awsAccessKeyRule: Rule = {
   defaultConfidence: "likely",
   description: "AWS Access Key ID がコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -38,7 +38,7 @@ export const awsAccessKeyRule: Rule = {
             message: "AWS Access Key ID がコードに含まれています。",
             explanation: "AWS 資格情報のハードコードは、不正 API 呼び出しやインフラ乗っ取りの起点になります。",
             remediation: "IAM ロールや環境変数へ移し、漏えいした可能性がある場合は無効化してください。",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }

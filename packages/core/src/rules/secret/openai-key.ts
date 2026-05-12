@@ -11,7 +11,7 @@ export const openaiKeyRule: Rule = {
   defaultConfidence: "likely",
   description: "OpenAI API キーがコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -42,7 +42,7 @@ export const openaiKeyRule: Rule = {
               "コードに API キーを直書きすると、リポジトリ共有や公開時にそのまま漏えいします。漏えいしたキーは不正利用と課金事故の起点になります。",
             remediation:
               "キーを環境変数に移し、漏えいした可能性がある場合は即時ローテーションしてください。",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }

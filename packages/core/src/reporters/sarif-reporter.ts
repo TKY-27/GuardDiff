@@ -17,14 +17,14 @@ export class SarifReporter {
               driver: {
                 name: "GuardDiff",
                 version: result.guarddiffVersion,
-                informationUri: "https://github.com/guarddiff/guarddiff",
+                informationUri: "https://github.com/TKY-27/GuardDiff",
                 rules: rules.map((rule) => ({
                   id: rule.id,
                   name: rule.title,
                   defaultConfiguration: {
                     level: toSarifLevel(rule.severity)
                   },
-                  helpUri: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md",
+                  helpUri: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md",
                   properties: {
                     ruleVersion: rule.ruleVersion,
                     defaultSeverity: rule.defaultSeverity ?? rule.severity,

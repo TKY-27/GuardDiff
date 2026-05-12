@@ -15,7 +15,7 @@ function buildCustomRule(customRule: CustomRuleConfig): Rule {
     defaultConfidence: "possible",
     description: customRule.message,
     enabled: true,
-    ruleVersion: "1.0.0",
+    ruleVersion: "0.1.0",
     detect(ctx: RuleContext): Finding[] {
       const findings: Finding[] = [];
       for (const hunk of ctx.fileDiff.hunks) {

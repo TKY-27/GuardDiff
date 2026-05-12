@@ -10,7 +10,7 @@ export const debugEndpointRule: Rule = {
   defaultConfidence: "likely",
   description: "デバッグ用エンドポイントが追加されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -38,7 +38,7 @@ export const debugEndpointRule: Rule = {
           message: `デバッグ用エンドポイント ${match[3]} が追加されています。`,
           explanation: "一時的なデバッグ API は本番に残ると情報漏えい、内部状態露出、認証漏れの入り口になります。",
           remediation: "ローカル専用の開発ツールに移すか、本番ビルドでは必ず除外してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

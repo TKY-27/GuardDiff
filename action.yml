@@ -45,7 +45,7 @@ inputs:
   rules-registry-url:
     description: JSON manifest URL used for rule update checks.
     required: false
-    default: https://raw.githubusercontent.com/guarddiff/guarddiff/main/docs/site/rules/manifest.json
+    default: https://raw.githubusercontent.com/TKY-27/GuardDiff/main/docs/site/rules/manifest.json
 
   sarif-file:
     description: Path for the SARIF output file.

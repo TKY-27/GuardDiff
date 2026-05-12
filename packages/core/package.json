@@ -1,19 +1,19 @@
 {
   "name": "@guarddiff/core",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "type": "module",
   "description": "Core parser, rules, engine, and reporters for GuardDiff.",
   "license": "MIT",
   "author": "GuardDiff contributors",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/guarddiff/guarddiff.git",
+    "url": "git+https://github.com/TKY-27/GuardDiff.git",
     "directory": "packages/core"
   },
   "bugs": {
-    "url": "https://github.com/guarddiff/guarddiff/issues"
+    "url": "https://github.com/TKY-27/GuardDiff/issues"
   },
-  "homepage": "https://github.com/guarddiff/guarddiff/tree/main/packages/core#readme",
+  "homepage": "https://github.com/TKY-27/GuardDiff/tree/main/packages/core#readme",
   "keywords": [
     "guarddiff",
     "security",

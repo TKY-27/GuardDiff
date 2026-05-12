@@ -46,7 +46,7 @@ export const packageJsonDangerousScriptRule: Rule = {
   defaultConfidence: "likely",
   description: "package.json lifecycle script が危険なコマンドを実行しています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     if (path.basename(ctx.fileDiff.filePath) !== "package.json") {
       return [];
@@ -177,7 +177,7 @@ function buildFinding(
       "依存先や開発者環境で任意コード実行につながる可能性があります。",
     remediation:
       "lifecycle script からリモートコード実行や inline shell 実行を取り除き、必要な処理はレビュー可能なローカルスクリプトへ分離してください。",
-    docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+    docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
   };
 }
 

@@ -9,7 +9,7 @@ export const firebaseOpenRulesRule: Rule = {
   defaultConfidence: "confirmed",
   description: "Firebase/Firestore ルールが全開放されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const addedContent = addedLinesToContent(ctx);
     const scanContent = addedContent.length > 0 ? addedContent : (ctx.fileDiff.rawContent ?? "");
@@ -37,7 +37,7 @@ export const firebaseOpenRulesRule: Rule = {
         message: "Firebase/Firestore ルールが全公開されています。",
         explanation: "読み書きを無条件に許可すると、認証なしでデータの改ざんと漏えいが可能になります。",
         remediation: "認証条件と所有者条件を明示し、少なくとも `request.auth != null` を基準に絞ってください。",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }

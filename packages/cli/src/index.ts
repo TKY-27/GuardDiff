@@ -10,7 +10,7 @@ import { runStagedCommand } from "./commands/staged.js";
 
 const program = new Command();
 
-program.name("guarddiff").description("Block risky AI-generated diffs before they merge.").version("1.0.0");
+program.name("guarddiff").description("Block risky AI-generated diffs before they merge.").version("0.1.0");
 
 program
   .command("staged")

@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run GuardDiff
-        uses: guarddiff/guarddiff@v1
+        uses: TKY-27/GuardDiff@v0.1.0
         with:
           fail-on: high
           post-comment: true

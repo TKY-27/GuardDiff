@@ -12,7 +12,7 @@ export const envCommittedRule: Rule = {
   defaultConfidence: "confirmed",
   description: ".env ファイルが差分に含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     if (ctx.fileDiff.isDeleted) {
       return [];
@@ -37,7 +37,7 @@ export const envCommittedRule: Rule = {
         message: ".env ファイルがコミット対象に含まれています。",
         explanation: ".env には実運用シークレットが含まれることが多く、誤って共有リポジトリへ入ると被害が大きくなります。",
         remediation: ".gitignore に追加し、必要なら .env.example を別途用意してください。",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }

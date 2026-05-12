@@ -10,7 +10,7 @@ export const firestoreOpenReadRule: Rule = {
   defaultConfidence: "confirmed",
   description: "Firestore の read ルールが全開放されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const addedContent = ctx.fileDiff.hunks
       .flatMap((hunk) => hunk.lines)
@@ -43,7 +43,7 @@ export const firestoreOpenReadRule: Rule = {
         message: "Firestore の read ルールが全公開されています。",
         explanation: "read を無条件に許可すると、機密データが未認証で取得可能になります。",
         remediation: "必要なコレクションだけを対象にし、認証済みユーザーや所有者に絞ってください。",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }

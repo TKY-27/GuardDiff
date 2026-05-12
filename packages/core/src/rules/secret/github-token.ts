@@ -12,7 +12,7 @@ export const githubTokenRule: Rule = {
   defaultConfidence: "likely",
   description: "GitHub トークンがコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -40,7 +40,7 @@ export const githubTokenRule: Rule = {
             message: "GitHub トークンがコードに含まれています。",
             explanation: "GitHub PAT はソース閲覧、変更、Actions 実行などの権限を持ちうるため、漏えい時の影響が大きい値です。",
             remediation: "GitHub Secrets や環境変数に移し、露出済みなら失効してください。",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }

@@ -4,6 +4,10 @@
 
 Security fixes are provided for the latest published minor version of GuardDiff.
 
+GuardDiff is local-first by default. The CLI and core scanner do not require a cloud service and should not upload source code or diffs unless a surrounding integration is explicitly configured to do so.
+
+Do not commit API keys, `.env` files, private keys, service-account files, tokens, passwords, or other secrets to repositories that use GuardDiff. Use `.env.example` for placeholder variable names only, keep real values in local secret stores or CI secret managers, and rotate any credential that is accidentally exposed.
+
 ## Reporting a Vulnerability
 
 Please do not open a public issue for exploitable vulnerabilities, scanner bypasses that expose real credentials, private repository details, or any report containing real secret values.

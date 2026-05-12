@@ -12,7 +12,7 @@ export const supabaseKeyRule: Rule = {
   defaultConfidence: "possible",
   description: "Supabase キーがコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -36,7 +36,7 @@ export const supabaseKeyRule: Rule = {
             message: "Supabase キーらしき JWT がコードに含まれています。",
             explanation: "特に service role key は RLS を迂回できるため、コミットすると DB 全体の露出につながるおそれがあります。",
             remediation: "公開用 anon key と管理用 key を分離し、管理用 key は絶対にクライアントコードへ入れないでください。",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }

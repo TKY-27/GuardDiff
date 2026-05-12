@@ -13,7 +13,7 @@ export const awsSecretKeyRule: Rule = {
   defaultConfidence: "possible",
   description: "AWS Secret Access Key がコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -42,7 +42,7 @@ export const awsSecretKeyRule: Rule = {
             message: "AWS Secret Access Key がコードに含まれています。",
             explanation: "Access Key ID と対になる秘密鍵は流出時の権限悪用リスクが非常に高い値です。",
             remediation: "コードから削除し、秘密管理ストアに移動してください。",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }

@@ -11,7 +11,7 @@ const rule: Rule = {
   defaultConfidence: "likely",
   description: "OpenAI key.",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect: () => []
 };
 
@@ -35,7 +35,7 @@ function buildFinding(lineStart: number): Finding {
 function buildResult(finding: Finding): ScanResult {
   return {
     scannedAt: "2026-04-30T00:00:00.000Z",
-    guarddiffVersion: "1.0.0",
+    guarddiffVersion: "0.1.0",
     inputType: "diff",
     findings: [finding],
     stats: {

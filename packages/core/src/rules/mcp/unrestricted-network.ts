@@ -15,7 +15,7 @@ export const mcpUnrestrictedNetworkRule: Rule = {
   defaultConfidence: "likely",
   description: "無制限のネットワークアクセス設定が追加されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
 
@@ -43,7 +43,7 @@ export const mcpUnrestrictedNetworkRule: Rule = {
           message: "無制限のネットワークアクセス設定が追加されています。",
           explanation: "外部送信が自由な状態で強権限ツールを組み合わせると、機密情報の持ち出しや外部への不正操作を招きやすくなります。",
           remediation: "必要な宛先だけに絞るか、デフォルトはネットワーク無効にして明示的に許可する形へ戻してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

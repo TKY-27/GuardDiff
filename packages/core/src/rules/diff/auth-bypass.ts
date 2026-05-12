@@ -17,7 +17,7 @@ export const authBypassRule: Rule = {
   defaultConfidence: "likely",
   description: "認証バイパスが追加されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     const fileSuggestsAuth = AUTH_CONTEXT.test(ctx.fileDiff.filePath);
@@ -49,7 +49,7 @@ export const authBypassRule: Rule = {
           message: "認証処理を迂回するコードが追加されています。",
           explanation: "認証ミドルウェアや認証関数内で早期に通してしまうと、保護対象へのアクセス制御が無効化されます。",
           remediation: "デバッグ目的の通し処理を削除し、必要なら明示的な feature flag を追加してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

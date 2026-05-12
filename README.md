@@ -2,13 +2,17 @@
 
 GuardDiff is a local-first security gate for AI-generated diffs. It blocks leaked secrets, removed auth, unsafe config, dangerous package scripts, dangerous shell execution, and over-permissive agent access before they merge.
 
-[![CI](https://github.com/guarddiff/guarddiff/actions/workflows/ci.yml/badge.svg)](https://github.com/guarddiff/guarddiff/actions/workflows/ci.yml)
+In one minute: install the CLI, scan the diff your AI coding agent produced, and fail fast when a change would leak a secret, weaken authentication, open Firebase/Firestore rules, or grant an agent too much local access. GuardDiff runs locally by default and is designed to fit pre-commit hooks, CI, GitHub Actions, and editor workflows.
+
+[![CI](https://github.com/TKY-27/GuardDiff/actions/workflows/ci.yml/badge.svg)](https://github.com/TKY-27/GuardDiff/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](./LICENSE)
 [![Node.js 18+](https://img.shields.io/badge/node-%3E%3D18-339933.svg)](https://nodejs.org/)
 
 ![GuardDiff CLI demo](./docs/assets/guarddiff-cli-demo.svg)
 
 GuardDiff is not just a secret scanner. It reads the diff an AI assistant just produced and blocks the classes of production-breaking changes that usually slip past simple token matching.
+
+Start here: [Quick Start](#quick-start), [Install](#install), [Usage](#usage), [Security](#security), [Local-First Privacy](#local-first-privacy), and [Roadmap](#roadmap).
 
 ```bash
 npm install -g guarddiff
@@ -67,6 +71,8 @@ GuardDiff is local-first by default. The core scanner does not upload code. The 
 
 Requires Node.js 18+.
 
+## Install
+
 Public install after npm publish:
 
 ```bash
@@ -81,6 +87,8 @@ npm install
 npm run build
 node packages/cli/dist/index.js staged --fail-on high
 ```
+
+## Usage
 
 Common commands:
 
@@ -132,7 +140,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run GuardDiff
-        uses: guarddiff/guarddiff@v1
+        uses: TKY-27/GuardDiff@v0.1.0
         with:
           fail-on: high
           post-comment: true
@@ -243,7 +251,6 @@ docs                       user docs, rule docs, release checks, static site
 - [Rule packs](./docs/rule-packs.md)
 - [GitHub Action smoke test](./docs/action-smoke-test.md)
 - [Release checklist](./docs/release-checklist.md)
-- [Project specification](./GuardDiff_仕様書.md)
 
 ## Roadmap
 

@@ -12,7 +12,7 @@ export const mcpFullHomeAccessRule: Rule = {
   defaultConfidence: "likely",
   description: "MCP またはエージェント設定でホームディレクトリ全体へのアクセスが許可されています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const fileContext = ctx.fileDiff.rawContent ?? ctx.fileDiff.hunks.flatMap((hunk) => hunk.lines.map((line) => line.content)).join("\n");
     const canUseFileContext = STRUCTURED_CONFIG_FILE_PATTERN.test(ctx.fileDiff.filePath) && PATH_CONTEXT_PATTERN.test(fileContext);
@@ -59,7 +59,7 @@ function detectMcpFinding(
         message,
         explanation,
         remediation,
-        docsUrl: `https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md`
+        docsUrl: `https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md`
       });
     }
   }

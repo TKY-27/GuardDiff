@@ -10,7 +10,7 @@ export const privateKeyRule: Rule = {
   defaultConfidence: "confirmed",
   description: "秘密鍵がコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     const findings: Finding[] = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -32,7 +32,7 @@ export const privateKeyRule: Rule = {
           message: "秘密鍵がコードに含まれています。",
           explanation: "秘密鍵は即座に第三者になりすましや復号を許すため、コミットしてはいけない代表例です。",
           remediation: "直ちに削除し、すでに露出した場合は鍵を再発行してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

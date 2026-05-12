@@ -15,7 +15,7 @@ export const envPlaintextSecretRule: Rule = {
   defaultConfidence: "likely",
   description: ".env に秘密情報らしき値が含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     if (!path.basename(ctx.fileDiff.filePath).startsWith(".env")) {
       return [];
@@ -64,7 +64,7 @@ export const envPlaintextSecretRule: Rule = {
           message: ".env に平文の秘密情報らしき値が含まれています。",
           explanation: ".env は共有や誤コミットの対象になりやすく、実値のまま置くと漏えい時の影響が大きくなります。",
           remediation: "`.env.example` にはダミー値のみを置き、実シークレットはローカルまたはシークレットマネージャーで管理してください。",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }

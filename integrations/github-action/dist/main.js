@@ -9617,7 +9617,7 @@ function buildCustomRule(customRule) {
     defaultConfidence: "possible",
     description: customRule.message,
     enabled: true,
-    ruleVersion: "1.0.0",
+    ruleVersion: "0.1.0",
     detect(ctx) {
       const findings = [];
       for (const hunk of ctx.fileDiff.hunks) {
@@ -9681,7 +9681,7 @@ var envPlaintextSecretRule = {
   defaultConfidence: "likely",
   description: ".env \u306B\u79D8\u5BC6\u60C5\u5831\u3089\u3057\u304D\u5024\u304C\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     if (!import_node_path.default.basename(ctx.fileDiff.filePath).startsWith(".env")) {
       return [];
@@ -9723,7 +9723,7 @@ var envPlaintextSecretRule = {
           message: ".env \u306B\u5E73\u6587\u306E\u79D8\u5BC6\u60C5\u5831\u3089\u3057\u304D\u5024\u304C\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: ".env \u306F\u5171\u6709\u3084\u8AA4\u30B3\u30DF\u30C3\u30C8\u306E\u5BFE\u8C61\u306B\u306A\u308A\u3084\u3059\u304F\u3001\u5B9F\u5024\u306E\u307E\u307E\u7F6E\u304F\u3068\u6F0F\u3048\u3044\u6642\u306E\u5F71\u97FF\u304C\u5927\u304D\u304F\u306A\u308A\u307E\u3059\u3002",
           remediation: "`.env.example` \u306B\u306F\u30C0\u30DF\u30FC\u5024\u306E\u307F\u3092\u7F6E\u304D\u3001\u5B9F\u30B7\u30FC\u30AF\u30EC\u30C3\u30C8\u306F\u30ED\u30FC\u30AB\u30EB\u307E\u305F\u306F\u30B7\u30FC\u30AF\u30EC\u30C3\u30C8\u30DE\u30CD\u30FC\u30B8\u30E3\u30FC\u3067\u7BA1\u7406\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -9741,7 +9741,7 @@ var firebaseOpenRulesRule = {
   defaultConfidence: "confirmed",
   description: "Firebase/Firestore \u30EB\u30FC\u30EB\u304C\u5168\u958B\u653E\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const addedContent = addedLinesToContent(ctx);
     const scanContent = addedContent.length > 0 ? addedContent : ctx.fileDiff.rawContent ?? "";
@@ -9766,7 +9766,7 @@ var firebaseOpenRulesRule = {
         message: "Firebase/Firestore \u30EB\u30FC\u30EB\u304C\u5168\u516C\u958B\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
         explanation: "\u8AAD\u307F\u66F8\u304D\u3092\u7121\u6761\u4EF6\u306B\u8A31\u53EF\u3059\u308B\u3068\u3001\u8A8D\u8A3C\u306A\u3057\u3067\u30C7\u30FC\u30BF\u306E\u6539\u3056\u3093\u3068\u6F0F\u3048\u3044\u304C\u53EF\u80FD\u306B\u306A\u308A\u307E\u3059\u3002",
         remediation: "\u8A8D\u8A3C\u6761\u4EF6\u3068\u6240\u6709\u8005\u6761\u4EF6\u3092\u660E\u793A\u3057\u3001\u5C11\u306A\u304F\u3068\u3082 `request.auth != null` \u3092\u57FA\u6E96\u306B\u7D5E\u3063\u3066\u304F\u3060\u3055\u3044\u3002",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }
@@ -9792,7 +9792,7 @@ var firestoreOpenReadRule = {
   defaultConfidence: "confirmed",
   description: "Firestore \u306E read \u30EB\u30FC\u30EB\u304C\u5168\u958B\u653E\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const addedContent = ctx.fileDiff.hunks.flatMap((hunk) => hunk.lines).filter((line) => line.type === "add").map((line) => line.content).join("\n");
     const scanContent = addedContent.length > 0 ? addedContent : ctx.fileDiff.rawContent ?? "";
@@ -9818,7 +9818,7 @@ var firestoreOpenReadRule = {
         message: "Firestore \u306E read \u30EB\u30FC\u30EB\u304C\u5168\u516C\u958B\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
         explanation: "read \u3092\u7121\u6761\u4EF6\u306B\u8A31\u53EF\u3059\u308B\u3068\u3001\u6A5F\u5BC6\u30C7\u30FC\u30BF\u304C\u672A\u8A8D\u8A3C\u3067\u53D6\u5F97\u53EF\u80FD\u306B\u306A\u308A\u307E\u3059\u3002",
         remediation: "\u5FC5\u8981\u306A\u30B3\u30EC\u30AF\u30B7\u30E7\u30F3\u3060\u3051\u3092\u5BFE\u8C61\u306B\u3057\u3001\u8A8D\u8A3C\u6E08\u307F\u30E6\u30FC\u30B6\u30FC\u3084\u6240\u6709\u8005\u306B\u7D5E\u3063\u3066\u304F\u3060\u3055\u3044\u3002",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }
@@ -9867,7 +9867,7 @@ var packageJsonDangerousScriptRule = {
   defaultConfidence: "likely",
   description: "package.json lifecycle script \u304C\u5371\u967A\u306A\u30B3\u30DE\u30F3\u30C9\u3092\u5B9F\u884C\u3057\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     if (import_node_path2.default.basename(ctx.fileDiff.filePath) !== "package.json") {
       return [];
@@ -9967,7 +9967,7 @@ function buildFinding(ctx, scriptName, command, reason, lineNumber) {
     message: `package.json \u306E ${scriptName} script \u304C\u5371\u967A\u306A\u30B3\u30DE\u30F3\u30C9\u3092\u5B9F\u884C\u3057\u307E\u3059\u3002`,
     explanation: `npm lifecycle script \u306F install \u3084 publish \u306E\u30BF\u30A4\u30DF\u30F3\u30B0\u3067\u81EA\u52D5\u5B9F\u884C\u3055\u308C\u307E\u3059\u3002\u3053\u306E script \u306F ${reason}\u305F\u3081\u3001\u4F9D\u5B58\u5148\u3084\u958B\u767A\u8005\u74B0\u5883\u3067\u4EFB\u610F\u30B3\u30FC\u30C9\u5B9F\u884C\u306B\u3064\u306A\u304C\u308B\u53EF\u80FD\u6027\u304C\u3042\u308A\u307E\u3059\u3002`,
     remediation: "lifecycle script \u304B\u3089\u30EA\u30E2\u30FC\u30C8\u30B3\u30FC\u30C9\u5B9F\u884C\u3084 inline shell \u5B9F\u884C\u3092\u53D6\u308A\u9664\u304D\u3001\u5FC5\u8981\u306A\u51E6\u7406\u306F\u30EC\u30D3\u30E5\u30FC\u53EF\u80FD\u306A\u30ED\u30FC\u30AB\u30EB\u30B9\u30AF\u30EA\u30D7\u30C8\u3078\u5206\u96E2\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-    docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+    docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
   };
 }
 function locateScriptLine(content, scriptName) {
@@ -9993,7 +9993,7 @@ var envCommittedRule = {
   defaultConfidence: "confirmed",
   description: ".env \u30D5\u30A1\u30A4\u30EB\u304C\u5DEE\u5206\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     if (ctx.fileDiff.isDeleted) {
       return [];
@@ -10016,7 +10016,7 @@ var envCommittedRule = {
         message: ".env \u30D5\u30A1\u30A4\u30EB\u304C\u30B3\u30DF\u30C3\u30C8\u5BFE\u8C61\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
         explanation: ".env \u306B\u306F\u5B9F\u904B\u7528\u30B7\u30FC\u30AF\u30EC\u30C3\u30C8\u304C\u542B\u307E\u308C\u308B\u3053\u3068\u304C\u591A\u304F\u3001\u8AA4\u3063\u3066\u5171\u6709\u30EA\u30DD\u30B8\u30C8\u30EA\u3078\u5165\u308B\u3068\u88AB\u5BB3\u304C\u5927\u304D\u304F\u306A\u308A\u307E\u3059\u3002",
         remediation: ".gitignore \u306B\u8FFD\u52A0\u3057\u3001\u5FC5\u8981\u306A\u3089 .env.example \u3092\u5225\u9014\u7528\u610F\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }
@@ -10039,7 +10039,7 @@ var authBypassRule = {
   defaultConfidence: "likely",
   description: "\u8A8D\u8A3C\u30D0\u30A4\u30D1\u30B9\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     const fileSuggestsAuth = AUTH_CONTEXT.test(ctx.fileDiff.filePath);
@@ -10067,7 +10067,7 @@ var authBypassRule = {
           message: "\u8A8D\u8A3C\u51E6\u7406\u3092\u8FC2\u56DE\u3059\u308B\u30B3\u30FC\u30C9\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u8A8D\u8A3C\u30DF\u30C9\u30EB\u30A6\u30A7\u30A2\u3084\u8A8D\u8A3C\u95A2\u6570\u5185\u3067\u65E9\u671F\u306B\u901A\u3057\u3066\u3057\u307E\u3046\u3068\u3001\u4FDD\u8B77\u5BFE\u8C61\u3078\u306E\u30A2\u30AF\u30BB\u30B9\u5236\u5FA1\u304C\u7121\u52B9\u5316\u3055\u308C\u307E\u3059\u3002",
           remediation: "\u30C7\u30D0\u30C3\u30B0\u76EE\u7684\u306E\u901A\u3057\u51E6\u7406\u3092\u524A\u9664\u3057\u3001\u5FC5\u8981\u306A\u3089\u660E\u793A\u7684\u306A feature flag \u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10135,7 +10135,7 @@ var authRemovedRule = {
             message: `\u8A8D\u8A3C\u30B3\u30FC\u30C9\u304C\u79FB\u52D5\u3055\u308C\u305F\u53EF\u80FD\u6027\u304C\u3042\u308A\u307E\u3059\uFF08${matchedKeyword}\uFF09\u3002`,
             explanation: "\u540C\u4E00\u5DEE\u5206\u5185\u306B\u540C\u3058\u8A8D\u8A3C\u30AD\u30FC\u30EF\u30FC\u30C9\u306E\u8FFD\u52A0\u304C\u3042\u308B\u305F\u3081\u3001\u5358\u7D14\u524A\u9664\u3067\u306F\u306A\u304F\u30EA\u30D5\u30A1\u30AF\u30BF\u30EA\u30F3\u30B0\u306E\u53EF\u80FD\u6027\u304C\u3042\u308A\u307E\u3059\u3002",
             remediation: "\u79FB\u52D5\u5148\u3067\u3082\u8A8D\u8A3C\u304C\u78BA\u5B9F\u306B\u5B9F\u884C\u3055\u308C\u3066\u3044\u308B\u304B\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           } : hasAuthContext ? {
             ruleId: this.id,
             title: this.title,
@@ -10149,7 +10149,7 @@ var authRemovedRule = {
             message: `\u8A8D\u8A3C\u30C1\u30A7\u30C3\u30AF\uFF08${matchedKeyword}\uFF09\u304C\u524A\u9664\u3055\u308C\u3066\u3044\u307E\u3059\u3002`,
             explanation: "\u8A8D\u8A3C\u30ED\u30B8\u30C3\u30AF\u306E\u524A\u9664\u306F\u4FDD\u8B77\u5BFE\u8C61\u3078\u306E\u4E0D\u6B63\u30A2\u30AF\u30BB\u30B9\u306B\u76F4\u7D50\u3059\u308B\u91CD\u5927\u306A\u5909\u66F4\u3067\u3059\u3002AI \u306E\u30C7\u30D0\u30C3\u30B0\u5909\u66F4\u3068\u3057\u3066\u7D1B\u308C\u8FBC\u307F\u3084\u3059\u3044\u5178\u578B\u4F8B\u3067\u3082\u3042\u308A\u307E\u3059\u3002",
             remediation: "\u524A\u9664\u304C\u610F\u56F3\u7684\u306A\u3089\u4EE3\u66FF\u8A8D\u8A3C\u306E\u5B58\u5728\u3092\u78BA\u8A8D\u3057\u3001\u4E0D\u8981\u306A\u524A\u9664\u306A\u3089\u5373\u6642\u306B\u623B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           } : {
             ruleId: this.id,
             title: "Authentication-Like Check Removed",
@@ -10163,7 +10163,7 @@ var authRemovedRule = {
             message: `\u8A8D\u8A3C\u3089\u3057\u304D\u30C1\u30A7\u30C3\u30AF\uFF08${matchedKeyword}\uFF09\u304C\u524A\u9664\u3055\u308C\u3066\u3044\u307E\u3059\u3002`,
             explanation: "\u8A8D\u8A3C\u30AD\u30FC\u30EF\u30FC\u30C9\u3092\u542B\u3080\u524A\u9664\u3067\u3059\u304C\u3001\u5468\u8FBA\u306E\u8A8D\u8A3C\u6587\u8108\u304C\u4E0D\u8DB3\u3057\u3066\u3044\u308B\u305F\u3081\u91CD\u5927\u5EA6\u3092\u4E00\u6BB5\u4E0B\u3052\u3066\u5831\u544A\u3057\u3066\u3044\u307E\u3059\u3002",
             remediation: "\u3053\u306E\u524A\u9664\u304C\u5B9F\u969B\u306E\u8A8D\u8A3C\u30AC\u30FC\u30C9\u306B\u5F53\u305F\u308B\u304B\u3001\u5468\u8FBA\u30B3\u30FC\u30C9\u3068\u79FB\u52D5\u5148\u3092\u78BA\u8A8D\u3057\u3066\u304F\u3060\u3055\u3044\u3002\u8A8D\u8A3C\u524A\u9664\u306A\u3089\u5143\u306B\u623B\u3059\u304B\u4EE3\u66FF\u4FDD\u8B77\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           }
         );
       }
@@ -10194,7 +10194,7 @@ var corsWildcardRule = {
   defaultConfidence: "likely",
   description: "CORS \u304C\u5168\u958B\u653E\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10218,7 +10218,7 @@ var corsWildcardRule = {
           message: "CORS \u304C\u30EF\u30A4\u30EB\u30C9\u30AB\u30FC\u30C9\u3067\u958B\u653E\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u8A8D\u8A3C\u4ED8\u304D API \u3084\u7BA1\u7406\u7CFB\u30A8\u30F3\u30C9\u30DD\u30A4\u30F3\u30C8\u3067 CORS \u3092\u5168\u958B\u653E\u3059\u308B\u3068\u3001\u610F\u56F3\u3057\u306A\u3044\u30AA\u30EA\u30B8\u30F3\u304B\u3089\u306E\u5229\u7528\u3092\u8A31\u3059\u304A\u305D\u308C\u304C\u3042\u308A\u307E\u3059\u3002",
           remediation: "\u8A31\u53EF\u3059\u308B\u30AA\u30EA\u30B8\u30F3\u3092\u660E\u793A\u3057\u3001\u672C\u756A\u3068\u958B\u767A\u3067\u8A2D\u5B9A\u3092\u5206\u96E2\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10237,7 +10237,7 @@ var dangerousShellRule = {
   defaultConfidence: "likely",
   description: "\u30E6\u30FC\u30B6\u30FC\u5165\u529B\u8D77\u70B9\u306E shell \u5B9F\u884C\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10265,7 +10265,7 @@ var dangerousShellRule = {
           message: "\u30E6\u30FC\u30B6\u30FC\u5165\u529B\u306B\u4F9D\u5B58\u3059\u308B shell \u5B9F\u884C\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u672A\u691C\u8A3C\u5165\u529B\u3092\u305D\u306E\u307E\u307E shell \u306B\u6E21\u3059\u3068\u30B3\u30DE\u30F3\u30C9\u30A4\u30F3\u30B8\u30A7\u30AF\u30B7\u30E7\u30F3\u306B\u76F4\u7D50\u3057\u307E\u3059\u3002",
           remediation: "shell \u3092\u907F\u3051\u3066 API \u3092\u76F4\u63A5\u547C\u3076\u304B\u3001\u5F15\u6570\u30EA\u30B9\u30C8\u3092\u4F7F\u3063\u3066\u53B3\u683C\u306B\u30D0\u30EA\u30C7\u30FC\u30B7\u30E7\u30F3\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10283,7 +10283,7 @@ var debugEndpointRule = {
   defaultConfidence: "likely",
   description: "\u30C7\u30D0\u30C3\u30B0\u7528\u30A8\u30F3\u30C9\u30DD\u30A4\u30F3\u30C8\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10308,7 +10308,7 @@ var debugEndpointRule = {
           message: `\u30C7\u30D0\u30C3\u30B0\u7528\u30A8\u30F3\u30C9\u30DD\u30A4\u30F3\u30C8 ${match2[3]} \u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002`,
           explanation: "\u4E00\u6642\u7684\u306A\u30C7\u30D0\u30C3\u30B0 API \u306F\u672C\u756A\u306B\u6B8B\u308B\u3068\u60C5\u5831\u6F0F\u3048\u3044\u3001\u5185\u90E8\u72B6\u614B\u9732\u51FA\u3001\u8A8D\u8A3C\u6F0F\u308C\u306E\u5165\u308A\u53E3\u306B\u306A\u308A\u307E\u3059\u3002",
           remediation: "\u30ED\u30FC\u30AB\u30EB\u5C02\u7528\u306E\u958B\u767A\u30C4\u30FC\u30EB\u306B\u79FB\u3059\u304B\u3001\u672C\u756A\u30D3\u30EB\u30C9\u3067\u306F\u5FC5\u305A\u9664\u5916\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10325,7 +10325,7 @@ var evalInjectionRule = {
   defaultConfidence: "likely",
   description: "eval \u306E\u4F7F\u7528\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10346,7 +10346,7 @@ var evalInjectionRule = {
           message: "eval \u306E\u4F7F\u7528\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "eval \u306F\u5165\u529B\u306E\u6D41\u5165\u7D4C\u8DEF\u306B\u3088\u3063\u3066\u4EFB\u610F\u30B3\u30FC\u30C9\u5B9F\u884C\u3092\u62DB\u304D\u3084\u3059\u304F\u3001\u4FDD\u5B88\u6027\u3082\u5927\u304D\u304F\u4E0B\u3052\u307E\u3059\u3002",
           remediation: "\u69CB\u6587\u89E3\u6790\u3084\u660E\u793A\u7684\u306A\u30DE\u30C3\u30D7\u51E6\u7406\u306B\u7F6E\u304D\u63DB\u3048\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10365,7 +10365,7 @@ var sensitiveLogRule = {
   defaultConfidence: "likely",
   description: "\u6A5F\u5BC6\u60C5\u5831\u306E\u30ED\u30B0\u51FA\u529B\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10389,7 +10389,7 @@ var sensitiveLogRule = {
           message: "\u6A5F\u5BC6\u60C5\u5831\u3092\u542B\u3080\u30ED\u30B0\u51FA\u529B\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u30ED\u30B0\u306F\u96C6\u7D04\u30FB\u5171\u6709\u3055\u308C\u3084\u3059\u304F\u3001\u6A5F\u5BC6\u5024\u3092\u542B\u3081\u308B\u3068\u4E8C\u6B21\u6F0F\u3048\u3044\u306E\u6E29\u5E8A\u306B\u306A\u308A\u307E\u3059\u3002",
           remediation: "\u5024\u306F\u30DE\u30B9\u30AF\u3057\u3001\u5FC5\u8981\u306A\u3089\u30E1\u30BF\u60C5\u5831\u3060\u3051\u3092\u8A18\u9332\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10415,7 +10415,7 @@ var mcpAutoExecWithoutApprovalRule = {
   defaultConfidence: "likely",
   description: "\u627F\u8A8D\u306A\u3057\u3067\u30B3\u30DE\u30F3\u30C9\u5B9F\u884C\u304C\u53EF\u80FD\u306A\u8A2D\u5B9A\u3067\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10440,7 +10440,7 @@ var mcpAutoExecWithoutApprovalRule = {
           message: "\u627F\u8A8D\u306A\u3057\u306E\u81EA\u52D5\u5B9F\u884C\u8A2D\u5B9A\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u304C\u4EBA\u9593\u306E\u627F\u8A8D\u306A\u3057\u306B\u30B3\u30DE\u30F3\u30C9\u3092\u5B9F\u884C\u3067\u304D\u308B\u3068\u3001\u8AA4\u64CD\u4F5C\u3084\u30D7\u30ED\u30F3\u30D7\u30C8\u6CE8\u5165\u304C\u305D\u306E\u307E\u307E\u7834\u58CA\u7684\u64CD\u4F5C\u306B\u3064\u306A\u304C\u308A\u307E\u3059\u3002",
           remediation: "\u627F\u8A8D\u30DD\u30EA\u30B7\u30FC\u3092\u6709\u52B9\u306B\u623B\u3057\u3001\u81EA\u52D5\u5B9F\u884C\u306F\u9650\u5B9A\u3055\u308C\u305F\u5B89\u5168\u306A\u30B5\u30D6\u30BB\u30C3\u30C8\u306B\u306E\u307F\u8A31\u53EF\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10460,7 +10460,7 @@ var mcpFullHomeAccessRule = {
   defaultConfidence: "likely",
   description: "MCP \u307E\u305F\u306F\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u8A2D\u5B9A\u3067\u30DB\u30FC\u30E0\u30C7\u30A3\u30EC\u30AF\u30C8\u30EA\u5168\u4F53\u3078\u306E\u30A2\u30AF\u30BB\u30B9\u304C\u8A31\u53EF\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const fileContext = ctx.fileDiff.rawContent ?? ctx.fileDiff.hunks.flatMap((hunk) => hunk.lines.map((line) => line.content)).join("\n");
     const canUseFileContext = STRUCTURED_CONFIG_FILE_PATTERN.test(ctx.fileDiff.filePath) && PATH_CONTEXT_PATTERN.test(fileContext);
@@ -10494,7 +10494,7 @@ function detectMcpFinding(ctx, rule, matcher, message, explanation, remediation)
         message,
         explanation,
         remediation,
-        docsUrl: `https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md`
+        docsUrl: `https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md`
       });
     }
   }
@@ -10513,7 +10513,7 @@ var mcpRootAccessRule = {
   defaultConfidence: "likely",
   description: "MCP \u307E\u305F\u306F\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8\u8A2D\u5B9A\u3067 `/` \u3078\u306E\u30A2\u30AF\u30BB\u30B9\u304C\u8A31\u53EF\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     const fileContext = ctx.fileDiff.rawContent ?? ctx.fileDiff.hunks.flatMap((hunk) => hunk.lines.map((line) => line.content)).join("\n");
@@ -10542,7 +10542,7 @@ var mcpRootAccessRule = {
           message: "\u30EB\u30FC\u30C8\u30C7\u30A3\u30EC\u30AF\u30C8\u30EA `/` \u3078\u306E\u30A2\u30AF\u30BB\u30B9\u304C\u8A31\u53EF\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u30EB\u30FC\u30C8\u5168\u4F53\u3092\u8A31\u53EF\u3059\u308B\u3068 OS \u8A2D\u5B9A\u3001\u30B7\u30B9\u30C6\u30E0\u79D8\u5BC6\u60C5\u5831\u3001\u4ED6\u30E6\u30FC\u30B6\u30FC\u9818\u57DF\u307E\u3067\u89E6\u308C\u308B\u8A2D\u5B9A\u306B\u306A\u308A\u3001\u4E8B\u6545\u6642\u306E\u5F71\u97FF\u7BC4\u56F2\u304C\u6975\u7AEF\u306B\u5E83\u304C\u308A\u307E\u3059\u3002",
           remediation: "\u5FC5\u8981\u6700\u5C0F\u9650\u306E\u30C7\u30A3\u30EC\u30AF\u30C8\u30EA\u3060\u3051\u3092\u660E\u793A\u3057\u3001`/` \u3092\u76F4\u63A5\u8A31\u53EF\u3057\u306A\u3044\u3067\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10565,7 +10565,7 @@ var mcpUnrestrictedNetworkRule = {
   defaultConfidence: "likely",
   description: "\u7121\u5236\u9650\u306E\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u30A2\u30AF\u30BB\u30B9\u8A2D\u5B9A\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10590,7 +10590,7 @@ var mcpUnrestrictedNetworkRule = {
           message: "\u7121\u5236\u9650\u306E\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u30A2\u30AF\u30BB\u30B9\u8A2D\u5B9A\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u5916\u90E8\u9001\u4FE1\u304C\u81EA\u7531\u306A\u72B6\u614B\u3067\u5F37\u6A29\u9650\u30C4\u30FC\u30EB\u3092\u7D44\u307F\u5408\u308F\u305B\u308B\u3068\u3001\u6A5F\u5BC6\u60C5\u5831\u306E\u6301\u3061\u51FA\u3057\u3084\u5916\u90E8\u3078\u306E\u4E0D\u6B63\u64CD\u4F5C\u3092\u62DB\u304D\u3084\u3059\u304F\u306A\u308A\u307E\u3059\u3002",
           remediation: "\u5FC5\u8981\u306A\u5B9B\u5148\u3060\u3051\u306B\u7D5E\u308B\u304B\u3001\u30C7\u30D5\u30A9\u30EB\u30C8\u306F\u30CD\u30C3\u30C8\u30EF\u30FC\u30AF\u7121\u52B9\u306B\u3057\u3066\u660E\u793A\u7684\u306B\u8A31\u53EF\u3059\u308B\u5F62\u3078\u623B\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -10609,7 +10609,7 @@ var anthropicKeyRule = {
   defaultConfidence: "likely",
   description: "Anthropic API \u30AD\u30FC\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     return detectPatternMatches(ctx, this, PATTERN, DUMMY_PATTERNS2, "Anthropic API \u30AD\u30FC\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002");
   }
@@ -10639,7 +10639,7 @@ function detectPatternMatches(ctx, rule, pattern, dummyPatterns, message) {
           message,
           explanation: "\u751F\u6210 AI \u7CFB\u306E API \u30AD\u30FC\u3092\u76F4\u66F8\u304D\u3059\u308B\u3068\u3001\u516C\u958B\u30EA\u30DD\u30B8\u30C8\u30EA\u3084 CI \u30ED\u30B0\u304B\u3089\u7B2C\u4E09\u8005\u306B\u5229\u7528\u3055\u308C\u308B\u304A\u305D\u308C\u304C\u3042\u308A\u307E\u3059\u3002",
           remediation: "\u74B0\u5883\u5909\u6570\u307E\u305F\u306F secret manager \u306B\u79FB\u52D5\u3057\u3001\u9732\u51FA\u3057\u305F\u53EF\u80FD\u6027\u304C\u3042\u308C\u3070\u30ED\u30FC\u30C6\u30FC\u30B7\u30E7\u30F3\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: `https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md`
+          docsUrl: `https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md`
         });
       }
     }
@@ -10664,7 +10664,7 @@ var awsAccessKeyRule = {
   defaultConfidence: "likely",
   description: "AWS Access Key ID \u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10690,7 +10690,7 @@ var awsAccessKeyRule = {
             message: "AWS Access Key ID \u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
             explanation: "AWS \u8CC7\u683C\u60C5\u5831\u306E\u30CF\u30FC\u30C9\u30B3\u30FC\u30C9\u306F\u3001\u4E0D\u6B63 API \u547C\u3073\u51FA\u3057\u3084\u30A4\u30F3\u30D5\u30E9\u4E57\u3063\u53D6\u308A\u306E\u8D77\u70B9\u306B\u306A\u308A\u307E\u3059\u3002",
             remediation: "IAM \u30ED\u30FC\u30EB\u3084\u74B0\u5883\u5909\u6570\u3078\u79FB\u3057\u3001\u6F0F\u3048\u3044\u3057\u305F\u53EF\u80FD\u6027\u304C\u3042\u308B\u5834\u5408\u306F\u7121\u52B9\u5316\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }
@@ -10711,7 +10711,7 @@ var awsSecretKeyRule = {
   defaultConfidence: "possible",
   description: "AWS Secret Access Key \u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10737,7 +10737,7 @@ var awsSecretKeyRule = {
             message: "AWS Secret Access Key \u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
             explanation: "Access Key ID \u3068\u5BFE\u306B\u306A\u308B\u79D8\u5BC6\u9375\u306F\u6D41\u51FA\u6642\u306E\u6A29\u9650\u60AA\u7528\u30EA\u30B9\u30AF\u304C\u975E\u5E38\u306B\u9AD8\u3044\u5024\u3067\u3059\u3002",
             remediation: "\u30B3\u30FC\u30C9\u304B\u3089\u524A\u9664\u3057\u3001\u79D8\u5BC6\u7BA1\u7406\u30B9\u30C8\u30A2\u306B\u79FB\u52D5\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }
@@ -10755,7 +10755,7 @@ var firebaseConfigRule = {
   defaultConfidence: "possible",
   description: "Firebase \u8A2D\u5B9A\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const addedLines = ctx.fileDiff.hunks.flatMap((hunk) => hunk.lines).filter((line) => line.type === "add");
     const addedContent = addedLines.map((line) => line.content).join("\n");
@@ -10781,7 +10781,7 @@ var firebaseConfigRule = {
         message: "Firebase \u8A2D\u5B9A\u30AA\u30D6\u30B8\u30A7\u30AF\u30C8\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
         explanation: "Firebase \u306E\u30AF\u30E9\u30A4\u30A2\u30F3\u30C8\u8A2D\u5B9A\u81EA\u4F53\u306F\u5E38\u306B\u79D8\u5BC6\u3067\u306F\u3042\u308A\u307E\u305B\u3093\u304C\u3001\u8AA4\u3063\u3066\u7BA1\u7406\u7528\u8A2D\u5B9A\u3084\u95A2\u9023\u9375\u304C\u6DF7\u5728\u3057\u3084\u3059\u3044\u9818\u57DF\u3067\u3059\u3002",
         remediation: "\u30AF\u30E9\u30A4\u30A2\u30F3\u30C8\u516C\u958B\u524D\u63D0\u306E\u5024\u304B\u3092\u78BA\u8A8D\u3057\u3001\u7BA1\u7406\u6A29\u9650\u306E\u3042\u308B\u9375\u306F\u542B\u3081\u306A\u3044\u3067\u304F\u3060\u3055\u3044\u3002",
-        docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+        docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
       }
     ];
   }
@@ -10798,7 +10798,7 @@ var githubTokenRule = {
   defaultConfidence: "likely",
   description: "GitHub \u30C8\u30FC\u30AF\u30F3\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10824,7 +10824,7 @@ var githubTokenRule = {
             message: "GitHub \u30C8\u30FC\u30AF\u30F3\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
             explanation: "GitHub PAT \u306F\u30BD\u30FC\u30B9\u95B2\u89A7\u3001\u5909\u66F4\u3001Actions \u5B9F\u884C\u306A\u3069\u306E\u6A29\u9650\u3092\u6301\u3061\u3046\u308B\u305F\u3081\u3001\u6F0F\u3048\u3044\u6642\u306E\u5F71\u97FF\u304C\u5927\u304D\u3044\u5024\u3067\u3059\u3002",
             remediation: "GitHub Secrets \u3084\u74B0\u5883\u5909\u6570\u306B\u79FB\u3057\u3001\u9732\u51FA\u6E08\u307F\u306A\u3089\u5931\u52B9\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }
@@ -10869,7 +10869,7 @@ var highEntropyStringRule = {
   defaultConfidence: "possible",
   description: "\u9AD8\u30A8\u30F3\u30C8\u30ED\u30D4\u30FC\u6587\u5B57\u5217\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10899,7 +10899,7 @@ var highEntropyStringRule = {
             message: "\u9AD8\u30A8\u30F3\u30C8\u30ED\u30D4\u30FC\u306A\u79D8\u5BC6\u60C5\u5831\u3089\u3057\u304D\u6587\u5B57\u5217\u304C\u8FFD\u52A0\u3055\u308C\u3066\u3044\u307E\u3059\u3002",
             explanation: "\u5341\u5206\u306B\u30E9\u30F3\u30C0\u30E0\u3067\u9577\u3044\u6587\u5B57\u5217\u304C\u79D8\u5BC6\u60C5\u5831\u306E\u6587\u8108\u3067\u8FFD\u52A0\u3055\u308C\u308B\u5834\u5408\u3001\u5B9F\u30AD\u30FC\u3084\u30C8\u30FC\u30AF\u30F3\u306E\u76F4\u66F8\u304D\u3067\u3042\u308B\u53EF\u80FD\u6027\u304C\u3042\u308A\u307E\u3059\u3002",
             remediation: "\u74B0\u5883\u5909\u6570\u3084\u30B7\u30FC\u30AF\u30EC\u30C3\u30C8\u30DE\u30CD\u30FC\u30B8\u30E3\u30FC\u306B\u79FB\u3057\u3001\u5FC5\u8981\u306A\u3089\u3053\u306E\u884C\u3060\u3051 inline suppression \u3092\u4ED8\u3051\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }
@@ -10934,7 +10934,7 @@ var openaiKeyRule = {
   defaultConfidence: "likely",
   description: "OpenAI API \u30AD\u30FC\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -10960,7 +10960,7 @@ var openaiKeyRule = {
             message: "OpenAI API \u30AD\u30FC\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
             explanation: "\u30B3\u30FC\u30C9\u306B API \u30AD\u30FC\u3092\u76F4\u66F8\u304D\u3059\u308B\u3068\u3001\u30EA\u30DD\u30B8\u30C8\u30EA\u5171\u6709\u3084\u516C\u958B\u6642\u306B\u305D\u306E\u307E\u307E\u6F0F\u3048\u3044\u3057\u307E\u3059\u3002\u6F0F\u3048\u3044\u3057\u305F\u30AD\u30FC\u306F\u4E0D\u6B63\u5229\u7528\u3068\u8AB2\u91D1\u4E8B\u6545\u306E\u8D77\u70B9\u306B\u306A\u308A\u307E\u3059\u3002",
             remediation: "\u30AD\u30FC\u3092\u74B0\u5883\u5909\u6570\u306B\u79FB\u3057\u3001\u6F0F\u3048\u3044\u3057\u305F\u53EF\u80FD\u6027\u304C\u3042\u308B\u5834\u5408\u306F\u5373\u6642\u30ED\u30FC\u30C6\u30FC\u30B7\u30E7\u30F3\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }
@@ -10985,7 +10985,7 @@ var privateKeyRule = {
   defaultConfidence: "confirmed",
   description: "\u79D8\u5BC6\u9375\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -11006,7 +11006,7 @@ var privateKeyRule = {
           message: "\u79D8\u5BC6\u9375\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
           explanation: "\u79D8\u5BC6\u9375\u306F\u5373\u5EA7\u306B\u7B2C\u4E09\u8005\u306B\u306A\u308A\u3059\u307E\u3057\u3084\u5FA9\u53F7\u3092\u8A31\u3059\u305F\u3081\u3001\u30B3\u30DF\u30C3\u30C8\u3057\u3066\u306F\u3044\u3051\u306A\u3044\u4EE3\u8868\u4F8B\u3067\u3059\u3002",
           remediation: "\u76F4\u3061\u306B\u524A\u9664\u3057\u3001\u3059\u3067\u306B\u9732\u51FA\u3057\u305F\u5834\u5408\u306F\u9375\u3092\u518D\u767A\u884C\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-          docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+          docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
         });
       }
     }
@@ -11025,7 +11025,7 @@ var stripeKeyRule = {
   defaultConfidence: "likely",
   description: "Stripe \u30B7\u30FC\u30AF\u30EC\u30C3\u30C8\u30AD\u30FC\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -11051,7 +11051,7 @@ var stripeKeyRule = {
             message: "Stripe \u30B7\u30FC\u30AF\u30EC\u30C3\u30C8\u30AD\u30FC\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
             explanation: "\u6C7A\u6E08\u7CFB\u306E\u79D8\u5BC6\u9375\u306F\u8AB2\u91D1\u64CD\u4F5C\u3084\u9867\u5BA2\u60C5\u5831\u30A2\u30AF\u30BB\u30B9\u306B\u76F4\u7D50\u3059\u308B\u305F\u3081\u3001\u6F0F\u3048\u3044\u6642\u306E\u88AB\u5BB3\u304C\u5927\u304D\u3044\u5024\u3067\u3059\u3002",
             remediation: "\u74B0\u5883\u5909\u6570\u306B\u79FB\u3057\u3001\u516C\u958B\u6E08\u307F\u306A\u3089\u5373\u6642\u30ED\u30FC\u30C6\u30FC\u30B7\u30E7\u30F3\u3057\u3066\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }
@@ -11071,7 +11071,7 @@ var supabaseKeyRule = {
   defaultConfidence: "possible",
   description: "Supabase \u30AD\u30FC\u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx) {
     const findings = [];
     for (const hunk of ctx.fileDiff.hunks) {
@@ -11094,7 +11094,7 @@ var supabaseKeyRule = {
             message: "Supabase \u30AD\u30FC\u3089\u3057\u304D JWT \u304C\u30B3\u30FC\u30C9\u306B\u542B\u307E\u308C\u3066\u3044\u307E\u3059\u3002",
             explanation: "\u7279\u306B service role key \u306F RLS \u3092\u8FC2\u56DE\u3067\u304D\u308B\u305F\u3081\u3001\u30B3\u30DF\u30C3\u30C8\u3059\u308B\u3068 DB \u5168\u4F53\u306E\u9732\u51FA\u306B\u3064\u306A\u304C\u308B\u304A\u305D\u308C\u304C\u3042\u308A\u307E\u3059\u3002",
             remediation: "\u516C\u958B\u7528 anon key \u3068\u7BA1\u7406\u7528 key \u3092\u5206\u96E2\u3057\u3001\u7BA1\u7406\u7528 key \u306F\u7D76\u5BFE\u306B\u30AF\u30E9\u30A4\u30A2\u30F3\u30C8\u30B3\u30FC\u30C9\u3078\u5165\u308C\u306A\u3044\u3067\u304F\u3060\u3055\u3044\u3002",
-            docsUrl: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+            docsUrl: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
           });
         }
       }
@@ -25156,14 +25156,14 @@ var SarifReporter = class {
               driver: {
                 name: "GuardDiff",
                 version: result.guarddiffVersion,
-                informationUri: "https://github.com/guarddiff/guarddiff",
+                informationUri: "https://github.com/TKY-27/GuardDiff",
                 rules: rules.map((rule) => ({
                   id: rule.id,
                   name: rule.title,
                   defaultConfiguration: {
                     level: toSarifLevel(rule.severity)
                   },
-                  helpUri: "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md",
+                  helpUri: "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md",
                   properties: {
                     ruleVersion: rule.ruleVersion,
                     defaultSeverity: rule.defaultSeverity ?? rule.severity,
@@ -25436,7 +25436,7 @@ async function runScan(params) {
   const durationMs = import_node_perf_hooks.performance.now() - startedAt;
   return {
     scannedAt: (/* @__PURE__ */ new Date()).toISOString(),
-    guarddiffVersion: params.version ?? "1.0.0",
+    guarddiffVersion: params.version ?? "0.1.0",
     inputType: params.inputType,
     findings,
     stats: buildStats(params.fileDiffs, findings, rules.length, durationMs),
@@ -25479,12 +25479,12 @@ function buildStats(fileDiffs, findings, rulesRun, durationMs) {
 }
 
 // integrations/github-action/src/lib.ts
-var ACTION_VERSION = "1.0.0";
+var ACTION_VERSION = "0.1.0";
 var COMMENT_MARKER = "<!-- guarddiff-report -->";
 var CONFIG_NAME = "guarddiff.config.yaml";
 var IGNORE_NAME = ".guarddiffignore";
 var DEFAULT_SARIF_FILE = "guarddiff-results.sarif";
-var DEFAULT_RULE_REGISTRY_URL = "https://raw.githubusercontent.com/guarddiff/guarddiff/main/docs/site/rules/manifest.json";
+var DEFAULT_RULE_REGISTRY_URL = "https://raw.githubusercontent.com/TKY-27/GuardDiff/main/docs/site/rules/manifest.json";
 var RULE_UPDATE_TIMEOUT_MS = 3e3;
 var SEVERITIES2 = ["critical", "high", "medium", "low", "info"];
 var CATEGORIES = ["secret", "diff", "config", "permission", "mcp"];

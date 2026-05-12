@@ -37,7 +37,7 @@ export async function runDiffCommand(
     inputType: options.stdin ? "stdin" : "diff",
     ignorePaths: loadIgnorePatterns(rootDir),
     rules,
-    version: "1.0.0"
+    version: "0.1.0"
   });
 
   process.stdout.write(`${renderResult(result, options.format ?? "terminal", options, rules)}\n`);

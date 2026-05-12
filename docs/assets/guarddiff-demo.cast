@@ -1,9 +1,9 @@
 {"version":2,"width":92,"height":24,"timestamp":1760000000,"env":{"SHELL":"/bin/zsh","TERM":"xterm-256color"}}
 [0.10,"o","$ npm install -g guarddiff\n"]
-[0.90,"o","+ guarddiff@1.0.0\n"]
+[0.90,"o","+ guarddiff@0.1.0\n"]
 [1.30,"o","$ git diff --staged -- src/openai.ts src/server.ts\n"]
 [2.10,"o","$ guarddiff staged --fail-on high\n"]
-[2.40,"o","GuardDiff v1.0.0 scanning staged diff...\n\n"]
+[2.40,"o","GuardDiff v0.1.0 scanning staged diff...\n\n"]
 [2.80,"o","✖ GuardDiff found 2 risky changes\n\n"]
 [3.10,"o","critical  secret/openai-key   src/openai.ts:4\n"]
 [3.30,"o","          OpenAI API key detected. Move it to OPENAI_API_KEY and rotate the exposed key.\n\n"]

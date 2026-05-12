@@ -1,94 +1,94 @@
 {
   "schemaVersion": 1,
-  "generatedFor": "guarddiff@1.0.0",
+  "generatedFor": "guarddiff@0.1.0",
   "rules": [
     {
       "id": "secret/anthropic-key",
       "title": "Anthropic API Key Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/aws-access-key",
       "title": "AWS Access Key ID Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/aws-secret-key",
       "title": "AWS Secret Access Key Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/firebase-config",
       "title": "Firebase Config Object Detected",
       "category": "secret",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/github-token",
       "title": "GitHub Token Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/openai-key",
       "title": "OpenAI API Key Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/private-key",
       "title": "Private Key Material Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/stripe-key",
       "title": "Stripe Secret Key Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/supabase-key",
       "title": "Supabase Key Detected",
       "category": "secret",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "secret/high-entropy",
       "title": "High-Entropy Secret-Like String Detected",
       "category": "secret",
       "severity": "medium",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "diff/auth-bypass",
       "title": "Authentication Bypass Added",
       "category": "diff",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "diff/auth-removed",
@@ -96,119 +96,119 @@
       "category": "diff",
       "severity": "critical",
       "ruleVersion": "2.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "diff/cors-wildcard",
       "title": "CORS Wildcard Detected",
       "category": "diff",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "diff/debug-endpoint",
       "title": "Debug Endpoint Added",
       "category": "diff",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "diff/dangerous-shell",
       "title": "Dangerous Shell Execution",
       "category": "diff",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "diff/eval-injection",
       "title": "eval Usage Added",
       "category": "diff",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "diff/sensitive-log",
       "title": "Sensitive Data Logged",
       "category": "diff",
       "severity": "medium",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "mcp/full-home-access",
       "title": "MCP Full Home Access Granted",
       "category": "mcp",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "mcp/root-access",
       "title": "MCP Root Filesystem Access Granted",
       "category": "mcp",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "mcp/auto-exec-without-approval",
       "title": "MCP Auto-Execution Without Approval",
       "category": "mcp",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "mcp/unrestricted-network",
       "title": "MCP Unrestricted Network Access",
       "category": "mcp",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "config/firebase-open-rules",
       "title": "Firebase Rules Open to Everyone",
       "category": "config",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "config/firestore-open-read",
       "title": "Firestore Read Rules Open to Everyone",
       "category": "config",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "config/env-plaintext-secret",
       "title": "Plaintext Secret in .env",
       "category": "config",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "config/env-committed",
       "title": ".env File Committed",
       "category": "config",
       "severity": "high",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     },
     {
       "id": "config/package-json-dangerous-script",
       "title": "Dangerous package.json Lifecycle Script",
       "category": "config",
       "severity": "critical",
-      "ruleVersion": "1.0.0",
-      "docsUrl": "https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md"
+      "ruleVersion": "0.1.0",
+      "docsUrl": "https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md"
     }
   ]
 }

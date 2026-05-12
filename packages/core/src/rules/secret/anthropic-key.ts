@@ -11,7 +11,7 @@ export const anthropicKeyRule: Rule = {
   defaultConfidence: "likely",
   description: "Anthropic API キーがコードに含まれています。",
   enabled: true,
-  ruleVersion: "1.0.0",
+  ruleVersion: "0.1.0",
   detect(ctx: RuleContext): Finding[] {
     return detectPatternMatches(ctx, this, PATTERN, DUMMY_PATTERNS, "Anthropic API キーがコードに含まれています。");
   }
@@ -51,7 +51,7 @@ function detectPatternMatches(
           message,
           explanation: "生成 AI 系の API キーを直書きすると、公開リポジトリや CI ログから第三者に利用されるおそれがあります。",
           remediation: "環境変数または secret manager に移動し、露出した可能性があればローテーションしてください。",
-          docsUrl: `https://github.com/guarddiff/guarddiff/blob/main/docs/rules/README.md`
+          docsUrl: `https://github.com/TKY-27/GuardDiff/blob/main/docs/rules/README.md`
         });
       }
     }
